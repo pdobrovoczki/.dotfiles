@@ -66,6 +66,9 @@ filetype plugin indent on    " required
 
 " MY CUSTOMIZATIONS
 " open taskwarrior in new tab with space+t
+nnoremap <C-c> :call NERDComment(0,"toggle")<CR>
+vnoremap <C-c> :call NERDComment(0,"toggle")<CR>
+
 let mapleader = "\<Space>"
 nnoremap <leader>t :tabnew <bar> :TW<CR>
 " set -- keybinding to open NERDTree bar
