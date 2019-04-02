@@ -47,6 +47,7 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'justincampbell/vim-eighties'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'farseer90718/vim-taskwarrior'
+Plugin 'ledger/vim-ledger'
 "
 "
 call vundle#end()            " required
