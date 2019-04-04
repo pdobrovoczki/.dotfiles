@@ -1,0 +1,113 @@
+set ssl_starttls     = yes
+set ssl_force_tls    = yes
+set imap_user        = 'peterdobrovoczki'
+set from             = 'peterdobrovoczki'
+set realname         = 'Peter Dobrovoczki'
+set folder           = imaps://imap.gmail.com/
+set spoolfile        = imaps://imap.gmail.com/INBOX
+set postponed        = "imaps://imap.gmail.com/[Gmail]/Drafts"
+set header_cache     = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+set smtp_url         = 'smtps://peterdobrovoczki@gmail.com@smtp.gmail.com:465/'
+set move             = no
+set imap_keepalive   = 900
+set sort_aux         = reverse-last-date-received
+set sort             = threads
+
+set editor='vim'
+
+source ~/.mutt/mutt-colors-solarized-dark-256.muttrc
+# Sidebar Patch {{{
+set sidebar_visible = yes
+#set sidebar_delim   = ' | '
+set sidebar_width   = 30
+ set sidebar_delim_chars = "./"
+mailboxes =inbox
+color sidebar_new yellow default
+set sidebar_visible                         # Make the Sidebar visible by default
+bind index,pager B sidebar-toggle-visible   # Use 'B' to switch the Sidebar on and off
+#}}}
+# Keybindings {{{
+
+# Search keybindings
+macro index s "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py ~/mail/mick-readmore/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+# Gmail style keybindings
+bind  editor <space> noop
+bind  index,pager m  mail        #Compose
+bind index,pager e resend-message # Open a draft message for editing
+bind  generic     x  tag-entry        #Select Conversation
+bind  index       x  tag-thread       #Select Conversation
+bind  pager       x  tag-message #Select Conversation
+macro index,pager +  <save-message>=[Gmail]/Important<enter><enter> "Mark as important"
+macro index,pager !  <save-message>=[Gmail]/Spam<enter><enter> "Report spam"
+bind  index,pager a  group-reply #Reply all
+bind  index,pager \# delete-thread    #Delete
+#bind  index,pager l  copy-message    #Label
+macro index,pager I  <set-flag>O "Mark as read"
+macro index,pager U  <clear-flag>O    "Mark as unread"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# }}}
+
+
+# ctrl-n, ctrl-p to select next, prev folder# ctrl-o to open selected folder
+bind index \CP sidebar-prev
+bind index \CN sidebar-next
+bind index \CO sidebar-open
+bind pager \CP sidebar-prev
+bind pager \CN sidebar-next
+bind pager \CO sidebar-open
+
+# Status Bar {{{
+set status_chars   = " *%A"
+
+## status_format - format of summary on the current folder in the index
+## meta strings:
+##  -----f-h---lmn-p-rst-v----  lower case letters (10)
+##  ------------M----------X--  upper case letters (02)
+## %d      the number of messages with the flag 'delete'  (v64)
+## %f      the full pathname of the current mailbox
+## %h      local hostname
+## %l      size (in bytes) of the current mailbox
+## %m      the number of messages in the mailbox
+## %M      the number of messages shown (i.e., which match the current limit)
+## %n      number of new messages in the mailbox
+## %p      number of postponed messages
+## %s      current sorting mode
+## %r      modified/read-only/won't-write/attach-message indicator-status_chars
+## %t      number of tagged messages
+## %v      Mutt version string
+## %>X     right justify the rest of the string and pad with "X"
+## %|X     pad to the end of the line with "X"
+##
+## %?<sequence_char>?<optional_string>? optionally print string, if>0
+##
+## Examples:
+#set status_format="%v: %f (%s) [%?M/?%m]  [flags:%?t tagged,?%n new%?p post?]"
+#set status_format="%v: %f (%s) [%?M/?%m]  [flags:%?t tagged,?%n new]"
+#set status_format="%v: %f (%s) [%M/%m]\n[flags:n=%n,D=%d,t=%t,!=%F]"
+#set status_format="%v: %f (%s) [%M/%m]  [flags:n=%n,t=%t]"
+#set status_format="%v:    (%s) [%M/%m]  [flags:n=%n,t=%t]"
+#set status_format="%v:    (%s) [%M/%m]  [flags:n:%n,t:%t,p:%p]"
+#set status_format="%v:    (%s) [%M/%m]  [flags:%?02n new?,t:%t]"
+#set status_format="%v: %f (%s) [%M/%m]  [flags:%n new,%?t tagged?]"
+#set status_format="%v: %f (%s) [%M/%m;%l bytes]  [N=%n,*=%t,post=%p]"
+#set status_format="%v: %f (%s) [%M/%m] [N=%n,*=%t,post=%p,new=%b]"
+#set status_format=" Msgs=%M(%m) [N=%n,O=%o,*=%t,p=%p] %> %r (%P) %h:%f [%l] (%s/%S) (%v) "
+
+#set status_format  = "Folder: %f : %r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? %>-%?p?( %p postponed )? : "
+set status_on_top = yes
+set status_format  = "Folder: %f : %r%n new (%m messages)%?d? (%d to delete)?%?t? (%t tagged)? %>-%?p?( %p postponed )? : "
+
+# }}}
+#
+# Pager {{{
+set pager_index_lines = 10 # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
+
+# }}}
