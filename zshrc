@@ -18,7 +18,7 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 
 
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator user dir vcs)
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator user dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator user battery dir vcs)
 #POWERLEVEL9K_TIME_FORMAT="%D{%H:%M} "
 POWERLEVEL9K_TIME_FORMAT="%D{%m.%d.%y \UF133  %I:%M}"
 POWERLEVEL9K_RAM_BACKGROUND="black"
@@ -119,6 +119,13 @@ plugins=(
   git
   battery
   zsh-syntax-highlighting
+  history
+  docker
+  python
+  taskwarrior
+  tmux
+  web-search
+  z
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -151,6 +158,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export LD_LIBRARY_PATH=/usr/local/lib
+#export LD_LIBRARY_PATH=/usr/local/lib
+PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
+export PKG_CONFIG_PATH
 screenfetch
 task list

@@ -70,12 +70,14 @@ filetype plugin indent on    " required
 nnoremap <C-c> :call NERDComment(0,"toggle")<CR>
 vnoremap <C-c> :call NERDComment(0,"toggle")<CR>
 
+set colorcolumn=80
+
 let mapleader = "\<Space>"
 nnoremap <leader>t :tabnew <bar> :TW<CR>
 " set -- keybinding to open NERDTree bar
 map -- :NERDTreeToggle<CR>
 " set colorscheme to darkblue
-colorscheme monokai-chris
+colorscheme molokai
 "au InsertLeave * colorscheme monokai-chris
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
