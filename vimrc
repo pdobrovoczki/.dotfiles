@@ -107,6 +107,10 @@ if &term =~ '256color'
   set t_ut=
 endif
 
+" Until a better solution is found
+nnoremap <C-y> v$:'<,'>w !xclip -selection clipboard<CR><CR>
+vnoremap <C-w> :'<,'>w !xclip -selection clipboard<CR><CR>
+
 " Set compatibility to Vim only.
 set nocompatible
 
