@@ -4,6 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export TERM="xterm-256color"
+#export TERM="tmux-256color"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -124,6 +125,7 @@ plugins=(
   python
   taskwarrior
   tmux
+  fzf
   web-search
   z
 )
@@ -161,5 +163,8 @@ source $ZSH/oh-my-zsh.sh
 #export LD_LIBRARY_PATH=/usr/local/lib
 PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
 export PKG_CONFIG_PATH
+alias xc="xclip -selection clipboard"
 screenfetch
 task list
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

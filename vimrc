@@ -93,6 +93,20 @@ let g:syntastic_check_on_wq = 0
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
+augroup vagrant
+  au!
+  au BufRead,BufNewFile Vagrantfile set filetype=ruby
+augroup END
+
+au BufNewFile,BufRead Jenkinsfile setf groovy
+
+if &term =~ '256color'
+  " disable Background Color Erase (BCE) so that color schemes
+  "     " render properly when inside 256-color tmux and GNU screen.
+  "         " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
+endif
+
 " Set compatibility to Vim only.
 set nocompatible
 
