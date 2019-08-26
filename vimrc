@@ -48,6 +48,7 @@ Plugin 'justincampbell/vim-eighties'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'farseer90718/vim-taskwarrior'
 Plugin 'ledger/vim-ledger'
+Plugin 'lervag/vimtex'
 "
 "
 call vundle#end()            " required
@@ -102,8 +103,8 @@ au BufNewFile,BufRead Jenkinsfile setf groovy
 
 if &term =~ '256color'
   " disable Background Color Erase (BCE) so that color schemes
-  "     " render properly when inside 256-color tmux and GNU screen.
-  "         " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  " render properly when inside 256-color tmux and GNU screen.
+  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
   set t_ut=
 endif
 
