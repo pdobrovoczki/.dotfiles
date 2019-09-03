@@ -12,7 +12,11 @@ export TERM="xterm-256color"
 #POWERLEVEL9K_MODE='awesome-fontconfig'
 
 #POWERLEVEL9K_MODE='awesome-patched'
-ZSH_THEME="powerlevel9k/powerlevel9k"
+if [[ -n $SSH_CONNECTION ]]; then
+  ZSH_THEME="robbyrussell"
+else
+  ZSH_THEME="powerlevel9k/powerlevel9k"
+fi
 #ZSH_THEME="agnoster"
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MODE='nerdfont-complete'
