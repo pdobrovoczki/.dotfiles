@@ -49,6 +49,9 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'farseer90718/vim-taskwarrior'
 Plugin 'ledger/vim-ledger'
 Plugin 'lervag/vimtex'
+Plugin 'JuliaEditorSupport/julia-vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 "
 "
 call vundle#end()            " required
@@ -67,6 +70,24 @@ filetype plugin indent on    " required
 
 
 " MY CUSTOMIZATIONS
+" Suppress latex conceal
+let g:tex_conceal="abg"
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="#'"
+"let g:UltiSnipsJumpForwardTrigger="<c-RIGHT>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-LEFT>"
+let g:UltiSnipsUsePythonVersion = 3
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+" UltiSnips directories
+"let g:UltiSnipsSnippetDirectories=["UltiSnips","$HOME/.vim/snippets/UltiSnips"]
+let g:UltiSnipsSnippetDirectories=["~/.vim/custom-snippets/UltiSnips"]
+
+let g:tex_flavor = 'latex'
+
 " open taskwarrior in new tab with space+t
 nnoremap <C-c> :call NERDComment(0,"toggle")<CR>
 vnoremap <C-c> :call NERDComment(0,"toggle")<CR>
@@ -77,8 +98,8 @@ let mapleader = "\<Space>"
 nnoremap <leader>t :tabnew <bar> :TW<CR>
 " set -- keybinding to open NERDTree bar
 map -- :NERDTreeToggle<CR>
-" set colorscheme to darkblue
-colorscheme molokai
+" set colorscheme
+colorscheme wolfpack
 "au InsertLeave * colorscheme monokai-chris
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
