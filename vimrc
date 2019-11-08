@@ -70,20 +70,24 @@ filetype plugin indent on    " required
 
 
 " MY CUSTOMIZATIONS
+" Set buffer movements
+nmap gn :bn<CR>
+nmap gp :bp<CR>
+nmap bd :bd<CR>
+
+" Spellchecking in commit message
+autocmd FileType gitcommit setlocal spell spelllang=en_us
+
 " Suppress latex conceal
 let g:tex_conceal="abg"
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="#'"
-"let g:UltiSnipsJumpForwardTrigger="<c-RIGHT>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-LEFT>"
 let g:UltiSnipsUsePythonVersion = 3
-" If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-" UltiSnips directories
-"let g:UltiSnipsSnippetDirectories=["UltiSnips","$HOME/.vim/snippets/UltiSnips"]
 let g:UltiSnipsSnippetDirectories=["~/.vim/custom-snippets/UltiSnips"]
 
 let g:tex_flavor = 'latex'
