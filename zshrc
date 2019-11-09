@@ -128,7 +128,7 @@ plugins=(
   docker
   python
   taskwarrior
-  tmux
+  #tmux
   fzf
   web-search
   z
@@ -164,12 +164,26 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#export LD_LIBRARY_PATH=/usr/local/lib
+export LD_LIBRARY_PATH=/usr/local/lib
 PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
 export PKG_CONFIG_PATH
+
+#export GUROBI variables
+export GUROBI_HOME="/opt/gurobi811/linux64"
+export PATH="${PATH}:${GUROBI_HOME}/bin"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+
+#export MATLAB installation
+export PATH=$PATH:/usr/local/MATLAB/R2019a/bin
+export MANPATH=$MANPATH:/home/peterdobrovoczki/Dokumentumok/masters_thesis/porta-1.4.1/man
+
+#set editor to VIM
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 alias xc="xclip -selection clipboard"
 screenfetch
-task list
+#task list
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || bat --color always {} || tree -C {}) 2> /dev/null | head -200'"
