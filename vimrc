@@ -52,6 +52,10 @@ Plugin 'lervag/vimtex'
 Plugin 'JuliaEditorSupport/julia-vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plugin 'morhetz/gruvbox'
+Plugin 'ryanoasis/vim-devicons'
 "
 "
 call vundle#end()            " required
@@ -103,8 +107,9 @@ nnoremap <leader>t :tabnew <bar> :TW<CR>
 " set -- keybinding to open NERDTree bar
 map -- :NERDTreeToggle<CR>
 " set colorscheme
-colorscheme wolfpack
-"au InsertLeave * colorscheme monokai-chris
+colorscheme gruvbox
+set background=dark
+"au InsertLeave * colorscheme gruvbox
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 vnoremap // y/<C-R>"<CR>
