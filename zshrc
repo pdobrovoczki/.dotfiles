@@ -190,3 +190,5 @@ export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || bat 
 export FZF_TMUX=1
 export FZF_DEFAULT_OPTS='--color fg:252,bg:233,hl:67,fg+:252,bg+:235,hl+:81
                          --color info:144,prompt:161,spinner:135,pointer:135,marker:118'
+
+bindkey -v
