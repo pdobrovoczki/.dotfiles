@@ -1,0 +1,146 @@
+snippet sum "Sum" i
+\sum_{${1:i=1}}^{${2:n}} $3
+endsnippet
+
+snippet cup "Cup" i
+\cup_{${1:i=1}}^{${2:n}} $3
+endsnippet
+
+snippet cap "Cap" i
+\cap_{${1:i=1}}^{${2:n}} $3
+endsnippet
+
+snippet _ "bar_{foo}" i
+${1:x}_{${2:n}}
+endsnippet
+
+snippet ^ "foo^{bar}" i
+${1:x}^{${2:n}}
+endsnippet
+
+snippet mb "mathbb" i
+\mathbb{$1}$0
+endsnippet
+
+snippet dm "display mode"
+\[
+	${0:${VISUAL}}
+\]
+endsnippet
+
+snippet // "Fraction" i
+\frac{$1}{$2} $0
+endsnippet
+
+snippet ( "Left parentheses" i
+\left(${0:${VISUAL}}
+endsnippet
+
+snippet ) "Right parentheses" i
+\right) ${0:${VISUAL}}
+endsnippet
+
+snippet () "Left-right par." i
+\left(${1:${VISUAL}}\right) $0
+endsnippet
+
+snippet _^ "a_i^j"
+$1_{$2}^{$3}
+endsnippet
+
+snippet <= "less than or equal to"
+\leq $0
+endsnippet
+
+snippet >= "greater than or equal to"
+\geq $0
+endsnippet
+
+snippet ... "..." iA
+\dots
+endsnippet
+
+snippet beg "begin-end"
+\begin{$1}
+	${0:${VISUAL}}
+\end{$1}
+endsnippet
+
+snippet $ "mathmode" iA
+$${1:${VISUAL}}$$0
+endsnippet
+
+snippet fl "floor" i
+\left\lfloor ${0:${VISUAL}}\right\rfloor
+endsnippet
+
+snippet ceil "ceil" i
+\left\lceil ${0:${VISUAL}}\right\rceil
+endsnippet
+
+priority 1
+snippet bcup "Big cup" i
+\bigcup_{${1:i=1}}^{${2:n}} $3
+endsnippet
+
+snippet bcap "Big cap" i
+\bigcap_{${1:i=1}}^{${2:n}} $3
+endsnippet
+
+snippet basic "Basic document template"
+\documentclass[11pt]{report}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\title{${1:title}}
+
+\author{Dobrovoczki Péter}
+
+\begin{document}
+\maketitle
+
+$0
+
+\end{document}
+endsnippet
+
+snippet table "Create tabular table"
+\begin{table}[h]
+\centering
+\begin{tabular}{$1}
+$0
+\end{tabular}
+\end{table}
+endsnippet
+
+snippet beamer "Presentation template"
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+
+\title{${1:title}}
+\author{Dobrovoczki Péter}
+\institute{Eötvös Loránd Tudományegyetem}
+\date{2019}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+	$0
+\end{frame}
+
+\end{document}
+endsnippet
+
+snippet fr "Beamer frame"
+\begin{frame}
+	\frametitle{${1:title}}
+$0
+\end{frame}
+endsnippet
+
+snippet onslide "Onslide block"
+\onslide<${1:slide_number}>{
+	${0:${VISUAL}}
+}
+endsnippet
