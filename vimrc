@@ -44,7 +44,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'kshenoy/vim-signature'
-Plugin 'justincampbell/vim-eighties'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'farseer90718/vim-taskwarrior'
 Plugin 'ledger/vim-ledger'
@@ -56,6 +55,8 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'morhetz/gruvbox'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'majutsushi/tagbar'
+Plugin 'dracula/vim'
 "
 "
 call vundle#end()            " required
@@ -74,6 +75,10 @@ filetype plugin indent on    " required
 
 
 " MY CUSTOMIZATIONS
+"Toggle Tagbar with F8
+nmap <F8> :TagbarToggle<CR>
+
+
 "Disable arrow keys in Normal mode
 no <Up> <Nop>
 no <Down> <Nop>
@@ -118,8 +123,9 @@ nnoremap <leader>t :tabnew <bar> :TW<CR>
 " set -- keybinding to open NERDTree bar
 map -- :NERDTreeToggle<CR>
 " set colorscheme
-colorscheme gruvbox
-set background=dark
+"colorscheme gruvbox
+"set background=dark
+colorscheme dracula
 "au InsertLeave * colorscheme gruvbox
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
